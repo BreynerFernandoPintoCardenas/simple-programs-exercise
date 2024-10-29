@@ -1,35 +1,43 @@
+#El tiempo en segundos que toma al centro de la yema alcanzar Ty
+ #°C está dado por la fórmula:
 
-#Un alumno desea saber que nota necesita en el tercer certamen para aprobar un ramo.
+#t=M2/3cρ1/3Kπ2(4π/3)2/3ln[0.76To−TwTy−Tw],
+#donde M
+ #es la masa del huevo, ρ
+ #su densidad, c
+ #su capacidad calorífica específica y K
+ #su conductividad térmica. Algunos valores típicos son:
 
-#El promedio del ramo se calcula con la siguiente formula.
+#M=47[g]
+ #para un huevo pequeño y M=67[g]
+ #para uno grande,
+#ρ=1.038[gcm−3]
+#,
+#c=3.7[Jg−1K−1]
+#, y
+#K=5.4⋅10−3[Wcm−1K−1
+#].
+#Tw
+ #es la temperatura de ebullición del agua y To
+ #la temperatura original del huevo antes de meterlo al agua, ambos en grados Celsius.
 
-#NC=(C1+C2+C3)3
-#NF=NC⋅0.7+NL⋅0.3
-#Donde NC
- #es el promedio de certámenes, NL
- #el promedio de laboratorio y NF
- #la nota final.
-
-#Escriba un programa que pregunte al usuario las notas de los dos primeros certamen y la nota de laboratorio, y muestre la nota que necesita el alumno para aprobar el ramo con nota final 60.
-
-#Ingrese nota certamen 1: 45
-#Ingrese nota certamen 2: 55
-#ingrese nota laboratorio: 65
-#Necesita nota 72 en el certamen 3
-
-
-certamenFirst = float(input("Ingrese nota certamen 1: "))
-certamenSecond = float(input("Ingrese nota certamen 2: "))
-gradeLaboratory = float(input("Ingrese nota laboratorio: "))
-
-
-NF_requerida = 60
-
+#Escriba un programa que reciba como entrada la temperatura original del huevo y muestre como salida el tiempo en segundos que le toma alcanzar la temperatura máxima para prepararlo a la copa.
+import math
 
 
-NC_requerida = (NF_requerida - gradeLaboratory * 0.3) / 0.7
+M = 47  
+rho = 1.038  
+c = 3.7  
+K = 5.4e-3  
+Tw = 100 
+Ty = 70  
 
 
-C3_necesaria = NC_requerida * 3 - certamenFirst - certamenSecond
+To = float(input("Ingrese la temperatura original del huevo (en °C): "))
 
-print(f"Necesita nota {C3_necesaria:.2f} en el certamen 3")
+
+t = (M**(2/3) * c * rho**(1/3) * K * math.pi**2 * (4 * math.pi / 3)**(2/3) * 
+     math.log((0.76 * To - Tw) / (Ty - Tw)))
+
+
+print(f"El tiempo para alcanzar la temperatura máxima de la yema es: {t:.2f} segundos")
