@@ -14,7 +14,7 @@
 #ρ=1.038[gcm−3]
 #,
 #c=3.7[Jg−1K−1]
-#, y
+#, y 
 #K=5.4⋅10−3[Wcm−1K−1
 #].
 #Tw
@@ -25,10 +25,10 @@
 import math
 
 
-M = 47  
-rho = 1.038  
+M = 67  
+p= 1.038  
 c = 3.7  
-K = 5.4e-3  
+K = 5.4 * (10**-3)
 Tw = 100 
 Ty = 70  
 
@@ -36,8 +36,20 @@ Ty = 70
 To = float(input("Ingrese la temperatura original del huevo (en °C): "))
 
 
-t = (M**(2/3) * c * rho**(1/3) * K * math.pi**2 * (4 * math.pi / 3)**(2/3) * 
-     math.log((0.76 * To - Tw) / (Ty - Tw)))
+
+t = (M**(2/3) * c * p**(1/3))
+dividiendo=(K * math.pi**2 * (4 * math.pi / 3)**(2/3))
+logaritmo=math.log((0.76 *( (To - Tw) / (Ty - Tw)))) 
+resultado=(t/dividiendo)
+segundos=(resultado*logaritmo)
+redondeando=round(segundos)
+
+print(t)
+print(dividiendo)       
+print(resultado)
+print(logaritmo)
 
 
-print(f"El tiempo para alcanzar la temperatura máxima de la yema es: {t:.2f} segundos")
+print(f"""El tiempo para alcanzar la temperatura máxima de la yema es: {segundos} segundos
+     y redondeada es: {redondeando}
+""")   
