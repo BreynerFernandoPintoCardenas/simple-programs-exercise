@@ -52,4 +52,4 @@ print(logaritmo)
 
 print(f"""El tiempo para alcanzar la temperatura máxima de la yema es: {segundos} segundos
      y redondeada es: {redondeando}
-""")   
+""")  
